@@ -5,7 +5,15 @@
 - redux-example (via using redux)
 
 
+example
+
 ![example](./images/ex1.gif)
+
+animated opacity
+
+![example](./images/ex0.gif)
+
+
 
 ![example](./images/ex2.png)
 
