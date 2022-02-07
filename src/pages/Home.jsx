@@ -33,13 +33,10 @@ export const Home = () => {
         const { name, value, checked } = e.target;
         let list = [...data];
         list.forEach(x => {
-            //checking for switch, because value coming from checked propery.
-            // you can reafactor this better for switches
-            if (x.id === dataId && name !== 'currentlyWorking') {
-                x[name] = value;
-            }
-            else if (x.id === dataId && name === 'currentlyWorking') {
-                x[name] = checked;
+            if (x.id === dataId) {
+                // checking for switch, because Switch Element's value is coming from "checked" property, not "value"
+                // you can refactor this better for multiple switches
+                name !== 'currentlyWorking' ? x[name] = value : x[name] = checked;
             }
         });
         setData(list);
