@@ -35,17 +35,13 @@ export const jobs = createSlice({
             state.data = list;
         },
         handleInputChange: (state, action) => {
-            console.log("change");
             const { name, value, checked, dataID } = action.payload;
             let list = [...state.data];
             list.forEach(x => {
-                //checking for switch, because value coming from checked propery.
-                // you can reafactor this better for switches
-                if (x.id === dataID && name !== 'currentlyWorking') {
-                    x[name] = value;
-                }
-                else if (x.id === dataID && name === 'currentlyWorking') {
-                    x[name] = checked;
+                if (x.id === dataID) {
+                    // checking for switch, because Switch Element's value is coming from "checked" property, not "value"
+                    // you can refactor this better for multiple switches
+                    name !== 'currentlyWorking' ? x[name] = value : x[name] = checked;
                 }
             });
             state.data = list;
