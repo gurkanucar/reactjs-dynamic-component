@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addJob, handleInputChange, removeById } from '../../store/jobs';
+import { handleInputChange, removeById } from '../../store/jobs';
 import "./InputComponent.css";
 
 export const InputComponent = (props) => {
