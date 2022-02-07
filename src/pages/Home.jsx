@@ -12,6 +12,15 @@ export const Home = () => {
         jobDescription: '',
         startDate: '',
         endDate: '',
+        currentlyWorking: true
+    },
+    {
+        id: 2,
+        company: '',
+        role: '',
+        jobDescription: '',
+        startDate: '',
+        endDate: '',
         currentlyWorking: false
     },
     ]);
@@ -20,17 +29,17 @@ export const Home = () => {
         return Math.floor(Math.random() * 100000);
     }
 
-    const handleInputChange = (e, dataId) => {
-        const { id, value, checked } = e.target;
+    const onChange = (e, dataId) => {
+        const { name, value, checked } = e.target;
         let list = [...data];
         list.forEach(x => {
             //checking for switch, because value coming from checked propery.
             // you can reafactor this better for switches
-            if (x.id === dataId && id !== 'currentlyWorking') {
-                x[id] = value;
+            if (x.id === dataId && name !== 'currentlyWorking') {
+                x[name] = value;
             }
-            else if (x.id === dataId && id === 'currentlyWorking') {
-                x[id] = checked;
+            else if (x.id === dataId && name === 'currentlyWorking') {
+                x[name] = checked;
             }
         });
         setData(list);
@@ -63,9 +72,8 @@ export const Home = () => {
                 data.map((item, index) => {
                     return <InputComponent
                         key={index}
-                        keyy={index}
                         data={item}
-                        handleInputChange={handleInputChange}
+                        onChange={onChange}
                         handleRemoveClick={handleRemoveClick}
                     />
                 })
